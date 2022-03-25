@@ -22,6 +22,10 @@ public class GameManager
 
     public GameObject player;
 
+    public MeteorsSourceBehaviour enemySource;
+
+    public Timer timer;
+
     public delegate void ChangeStateDelegate();
 
     public static ChangeStateDelegate changeStateDelegate;
@@ -30,6 +34,7 @@ public class GameManager
     {
         if (
             (gameState == GameState.ENDGAME && nextState == GameState.GAME) ||
+            (gameState == GameState.ENDGAME && nextState == GameState.MENU) ||
             (gameState == GameState.PAUSE && nextState == GameState.MENU)
         )
         {
@@ -43,6 +48,8 @@ public class GameManager
     {
         vidas = 3;
         score = 0;
+        enemySource.Wipe();
+        timer.Reset();
     }
 
     public static GameManager GetInstance()
@@ -50,7 +57,6 @@ public class GameManager
         if (_instance == null)
         {
             _instance = new GameManager();
-            _instance.player = GameObject.FindGameObjectWithTag("Player");
         }
 
         return _instance;
@@ -58,6 +64,11 @@ public class GameManager
 
     private GameManager()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        GameObject tmp = GameObject.FindGameObjectWithTag("EnemySource");
+        enemySource = tmp.GetComponent<MeteorsSourceBehaviour>();
+        timer = new Timer();
+
         this.Setup();
     }
 

@@ -8,12 +8,6 @@ public class UI_Timer : MonoBehaviour
 
     GameManager gm;
 
-    private int minutes = 0;
-
-    private int seconds = 0;
-
-    private float _lastCheck = 0.0f;
-
     void Start()
     {
         textComp = GetComponent<Text>();
@@ -22,34 +16,17 @@ public class UI_Timer : MonoBehaviour
 
     void Update()
     {
-
         if (gm.gameState != GameManager.GameState.GAME) return;
-
-        float now = Time.time;
-        int deltaTime = (int)(now - this._lastCheck);
-
-        if (deltaTime >= 1)
-        {
-            this.seconds++;
-
-            if (this.seconds >= 60)
-            {
-                this.seconds = 0;
-                this.minutes++;
-            }
-
-            this._lastCheck = Time.time;
-        }
-        this.UpdateTime();
+        gm.timer.Update();
+        UpdateTime();
     }
 
     void UpdateTime()
     {
-
-        int remainingSeconds = 120 - this.minutes * 60 - this.seconds;
+        int remainingSeconds = 120 - gm.timer.minutes * 60 - gm.timer.seconds;
 
         int seconds;
-        float minutes = Math.DivRem(remainingSeconds, 60, out seconds);        
+        float minutes = Math.DivRem(remainingSeconds, 60, out seconds);
 
         if (seconds >= 10)
         {

@@ -81,4 +81,12 @@ public class MeteorsSourceBehaviour : MonoBehaviour
             gm.ChangeState(GameManager.GameState.ENDGAME);
         }
     }
+
+    public void Wipe()
+    {
+        foreach (Transform meteor in transform)
+        {
+            GameObject.Destroy(meteor.gameObject);
+        }
+    }
 }
