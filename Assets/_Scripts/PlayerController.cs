@@ -56,7 +56,7 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
     void FixedUpdate()
     {
         if (gm.gameState != GameManager.GameState.GAME) return;
-        
+
         float yInput = Input.GetAxis("Vertical");
         float xInput = Input.GetAxis("Horizontal");
         Thrust(1.0f + xInput, yInput);
@@ -83,7 +83,6 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
             gm.gameState == GameManager.GameState.GAME
         )
         {
-            Debug.Log("Escape pressed");
             gm.ChangeState(GameManager.GameState.PAUSE);
         }
     }

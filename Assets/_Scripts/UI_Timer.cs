@@ -16,7 +16,6 @@ public class UI_Timer : MonoBehaviour
 
     void Update()
     {
-        if (gm.gameState != GameManager.GameState.GAME) return;
         gm.timer.Update();
         UpdateTime();
     }

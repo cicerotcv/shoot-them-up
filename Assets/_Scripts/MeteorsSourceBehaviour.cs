@@ -42,6 +42,8 @@ public class MeteorsSourceBehaviour : MonoBehaviour
 
     void CreateNewMeteors()
     {
+        if (gm.gameState != GameManager.GameState.GAME) return;
+
         if (Time.time - _lastBigRockCreated > bigRockInterval)
         {
             this.CreateMeteor(bigRock);
@@ -88,5 +90,14 @@ public class MeteorsSourceBehaviour : MonoBehaviour
         {
             GameObject.Destroy(meteor.gameObject);
         }
+    }
+
+    public void Reset()
+    {
+        this.Wipe();
+        this.bigRockInterval = 15.0f;
+        this.smallRockInterval = 2.0f;
+        this._lastBigRockCreated = 0.0f;
+        this._lastSmallRockCreated = 0.0f;
     }
 }

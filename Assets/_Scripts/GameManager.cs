@@ -48,7 +48,7 @@ public class GameManager
     {
         vidas = 3;
         score = 0;
-        enemySource.Wipe();
+        enemySource.Reset();
         timer.Reset();
     }
 
@@ -67,7 +67,7 @@ public class GameManager
         player = GameObject.FindGameObjectWithTag("Player");
         GameObject tmp = GameObject.FindGameObjectWithTag("EnemySource");
         enemySource = tmp.GetComponent<MeteorsSourceBehaviour>();
-        timer = new Timer();
+        timer = new Timer(this);
 
         this.Setup();
     }

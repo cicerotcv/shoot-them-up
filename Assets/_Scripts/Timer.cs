@@ -10,8 +10,17 @@ public class Timer
 
     private float _lastCheck = 0.0f;
 
+    private GameManager gm;
+
+    public Timer(GameManager gm)
+    {
+        this.gm = gm;
+    }
+
     public void Update()
     {
+        if (gm.gameState != GameManager.GameState.GAME) return;
+
         float now = Time.time;
         int deltaTime = (int)(now - this._lastCheck);
 
@@ -27,7 +36,6 @@ public class Timer
 
             this._lastCheck = Time.time;
         }
-        Debug.Log($"{minutes} {seconds}");
     }
 
     public void Reset()
