@@ -7,6 +7,7 @@ public class Timer
     public int minutes = 0;
 
     public int seconds = 0;
+    public int timeLimit = 120;
 
     private float _lastCheck = 0.0f;
 
@@ -35,6 +36,10 @@ public class Timer
             }
 
             this._lastCheck = Time.time;
+        }
+
+        if (minutes*60 + seconds > timeLimit){
+            gm.ChangeState(GameManager.GameState.ENDGAME);
         }
     }
 

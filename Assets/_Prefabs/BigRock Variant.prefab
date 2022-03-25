@@ -84,8 +84,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4387662416947406041, guid: 3d2e464f99c274e4c918cb2f1ee1fb76, type: 3}
+      propertyPath: scoreValue
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387662416947406041, guid: 3d2e464f99c274e4c918cb2f1ee1fb76, type: 3}
       propertyPath: _defaultIntegrity
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4387662416947406042, guid: 3d2e464f99c274e4c918cb2f1ee1fb76, type: 3}
       propertyPath: m_Name

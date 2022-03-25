@@ -12,7 +12,7 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
 
     public Transform arma01;
 
-    public float shootDelay = 1.0f;
+    public float shootDelay;
 
     private float _lastShootTimestamp = 0.0f;
 

@@ -10,9 +10,9 @@ public class MeteorsSourceBehaviour : MonoBehaviour
 
     public GameManager gm;
 
-    private float bigRockInterval = 15.0f;
+    public float bigRockInterval = 15.0f;
 
-    private float smallRockInterval = 2.0f;
+    public float smallRockInterval = 2.0f;
 
     private float _lastBigRockCreated = 0.0f;
 

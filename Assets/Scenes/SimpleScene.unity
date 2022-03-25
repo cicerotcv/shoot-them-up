@@ -1128,6 +1128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smallRock: {fileID: 8623441622549517908, guid: ee359368fd1ff9142bdf66e5dca85e85, type: 3}
   bigRock: {fileID: 9171942400607639685, guid: 53ffbbd534311304eb5f80eb7c5a63d0, type: 3}
+  bigRockInterval: 15
+  smallRockInterval: 2
 --- !u!1 &742059698
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,7 +2057,7 @@ MonoBehaviour:
   td: {fileID: 11400000, guid: 388701daaa55c334e9f5368eb44c325e, type: 2}
   bullet: {fileID: 3489666401528268575, guid: 4e361427dc69a394c808aff004814a68, type: 3}
   arma01: {fileID: 1649643075}
-  shootDelay: 0.1
+  shootDelay: 0.05
 --- !u!61 &1089724491
 BoxCollider2D:
   m_ObjectHideFlags: 0
