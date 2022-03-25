@@ -16,6 +16,8 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
 
     private float _lastShootTimestamp = 0.0f;
 
+    public AudioClip shootSFX;
+
     GameManager gm;
 
     private void Start()
@@ -28,7 +30,7 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
     public void Shoot()
     {
         if (Time.time - _lastShootTimestamp < shootDelay) return;
-
+        AudioManager.PlaySFX(shootSFX);
         _lastShootTimestamp = Time.time;
         Instantiate(bullet, arma01.position, Quaternion.identity);
     }
